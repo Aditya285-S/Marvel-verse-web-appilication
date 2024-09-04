@@ -32,11 +32,12 @@ ALLOWED_HOSTS = [
     'marvel-verse-web-appilication.onrender.com'
 ]
 
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = ['https://marvel-verse-web-appilication.onrender.com']
 
-CSRF_COOKIE_DOMAIN = '.onrender.com'
+CSRF_COOKIE_DOMAIN = 'marvel-verse-web-appilication.onrender.com'
 
 
 # Application definition
