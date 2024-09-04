@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block movies %}
+<section class="movie-details">
+    {% if movies %}
+    {% for movie in movies %}
+
+        {% if request.user.is_staff %}
+            <div style="margin: 5px 0 20px 15px;">
+                <a href="{% url 'update-movie' movie.id %}" class="login-button">UPDATE</a>
+                <a href="{% url 'delete-confirmation' movie.id %}" class="login-button">DELETE</a>
+            </div>
+        {% endif %}
+
+
+        <div class="rating-star-container" style="display: flex; justify-content: space-between; align-items: center; margin-right: 20px;">
+            <div class="rating-star"></div>
+            <a href="{% url 'update-like' movie.id %}" style="text-decoration: none;">
+                {% if favourite.liked %}
+                    <span class="rating-star" style="color: #f52c2c;">&#9829;</span>
+                {% else %}
+                    <span class="rating-star" style="color: #f52c2c;">&#9825;</span>
+                {% endif %}
+            </a>
+        </div>
+            
+
+        <div class="movie-card-container">
+            <div class="poster">
+                <img src="{{ movie.image.url }}" alt="Movie Poster">
+            </div>
+            <div class="movie-info">
+                <div class="movie-header">
+                    <h1>{{ movie.name }} ({{ movie.year }})</h1>
+                    <div class="rating-star">
+                        <span class="rating-star">&#9733;</span>
+                        <p><strong>{{ movie.rating }}</strong>/10</p>
+                    </div>
+                    
+                </div>
+
+                <p>{{ movie.genre.all|join:", " }} | {{ movie.release }}</p>
+
+                <div class="movie-info">
+                    <h3>{{ movie.storyline }}</h3>
+                    <br>
+                    <p><strong>Director:</strong> {{ movie.director }}</p>
+                    <p><strong>Actors:</strong> {{ movie.actors.all|join:", " }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-text">
+            <h3>Download {{ movie.name }} {{ movie.type }} ({{ movie.year }}) {{ movie.available }} Audio Dubbed from marvelverse.com</h3>
+        </div>
+
+        <div class="movie-info-details">
+            <h2>Movie Info:</h2>
+            <ul>
+                <li><strong>Full Name:</strong> {{ movie.name }}</li>
+                <li><strong>Release Year:</strong> {{ movie.release }}</li>
+                <li><strong>Language:</strong> {{ movie.available }}</li>
+                <li><strong>Quality:</strong> 720p, 1080p </li>
+                <li><strong>Format:</strong> Mkv</li>
+            </ul>
+        </div>
+        
+        <div class="storyline">
+            <h2>Storyline:</h2>
+            <h4>"{{ movie.storyline }}"</h4>
+        </div>
+        
+
+        <div class="download-text">
+            <h3>Download {{ movie.name }} {{ movie.type }} ({{ movie.year }}) {{ movie.available }} audio 720p</h3>
+        </div>
+
+        <div class="download-link">
+            <a href="{% url 'movie-download' movie.name %}" target="_blank">Download</a>
+        </div>
+
+        <div class="download-text">
+            <h3>Download {{ movie.name }} {{ movie.type }} ({{ movie.year }}) {{ movie.available }} audio 1080p</h3>
+        </div>
+
+        <div class="download-link">
+            <a href="{% url 'movie-download' movie.name %}" target="_blank">Download</a>
+        </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="comment-section">
+        <h2>Comments</h2>
+    
+        {% if comments %}
+            {% for comment in comments %}
+            <div class="comment">
+                <img src="{% static 'images/user.png' %}" alt="User Avatar">
+                <div class="comment-content">
+                    <strong>{{ comment.user.username }}</strong>
+                    <span class="date">{{ comment.created_at|date:"F j, Y" }}</span>
+                    <p>{{ comment.text }}</p>
+
+                    {% if user.is_authenticated %}
+                        <a class="reply" href="javascript:void(0);" onclick="showReplyForm('{{ comment.id }}')">Reply</a>
+                    {% else %}
+                        <div class="comment-login">
+                            <a class="reply" href="{% url 'login' %}">Reply</a>
+                        </div>
+                    {% endif %}
+    
+                    {% if comment.replies %}
+                    <div class="replies">
+                        {% for reply in comment.replies.all %}
+                        <div class="comment">
+                            <img src="{% static 'images/user.png' %}" alt="User Avatar">
+                            <div class="comment-content">
+                                <strong>{{ reply.user.username }}</strong>
+                                <span class="date">{{ reply.created_at|date:"F j, Y" }}</span>
+                                <p>{{ reply.text }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+
+                    <div id="reply-form-{{ comment.id }}" class="reply-form" style="display: none;">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                            <textarea name="text" rows="2" placeholder="Write your reply..."></textarea>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>            
+            {% endfor %}
+        {% else %}
+            <h5>No comments yet. Be the first to comment!</h5>
+        {% endif %}
+    
+        {% if user.is_authenticated %}
+            <h3>Leave a Comment</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="comment-input">
+                    {{ comment_form.as_p }}
+                </div>
+                <div class="comment-button">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        {% else %}
+        <div class="comment-login">
+            <p><a href="{% url 'login' %}">Login</a> to leave a comment.</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <section class="movies-container" style="margin-top: 20px;">
+        {% if related_movies %}
+          {% for movie in related_movies %}
+            <a href="{% url 'movie' movie.id %}">
+              <div class="movie-card">
+                <img src="{{ movie.image.url }}" alt="Movie Image">>
+                <h2>Download {{ movie.name }} {{movie.type}} ({{movie.year}}) [{{movie.available}} With Subtitles] 720p || 1080p </h2>
+              </div>
+            </a>
+          {% endfor %}
+        {% endif %}
+    </section>
+    
+</section>
+
+
+{% endblock movies %}

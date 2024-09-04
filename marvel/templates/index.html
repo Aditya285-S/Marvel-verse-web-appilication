@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block movies %}
+
+  <section class="movies-container">
+    {% if movies %}
+      {% for movie in movies %}
+        <a href="{% url 'movie' movie.id %}">
+          <div class="movie-card">
+            <img src="{{ movie.image.url }}" alt="Movie Image">>
+            <h2>Download {{ movie.name }} {{movie.type}} ({{movie.year}}) [{{movie.available}} With Subtitles] 720p || 1080p </h2>
+          </div>
+        </a>
+      {% endfor %}
+
+      
+    {% else %}
+        {% if type == 'Animation' %}
+          <div class="no-content">
+            <h2 class="no-movie-text">Sorry! Currently, no Animated movie or series available!</h2>
+          </div>
+        {% elif type == 'failure'%}
+          <div class="no-content">
+            <h2 class="no-movie-text">Sorry! There is no movie or series available for {{query}}!</h2>
+          </div>
+        {% else %}
+          <div class="no-content">
+            <h2 class="no-movie-text">Sorry! Currently, no {{type}} content available!</h2>
+          </div>
+        {% endif %}
+    {% endif %}
+  </section>
+
+  {% if movies %}
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+      <span class="step-links">
+          {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+          {% endif %}
+
+          <div class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </div>
+
+          {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+          {% endif %}
+      </span>
+      </ul>
+    </nav>
+  {% endif %}
+
+{% endblock movies %}

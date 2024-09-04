@@ -1,0 +1,94 @@
+{% extends 'head.html' %}
+{% block content %}
+
+  <header>
+    <div class="header-container">
+      <h1 class="site-title">MARVELVERSE</h1>
+      <div class="search-bar-container">
+        <form action="{% url 'search' %}">
+          <input type="text" name="query" class="search-bar" placeholder="Search for Movie...">
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+      <div class="button-group">
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" class="login-button">LOGOUT</a>
+        {% else %}
+          <a href="{% url 'login' %}" class="login-button">LOGIN</a>
+        {% endif %}
+        {% if request.user.is_staff %}
+          <a href="{% url 'admin-url' %}" class="login-button">ADMIN</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="{% url 'home' %}">HOME</a></li>
+      <li><a href="{% url 'movies' %}">MOVIES</a></li>
+      <li><a href="{% url 'series' %}">SERIES</a></li>
+      <li><a href="{% url 'animation' %}">ANIMATION</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">GENRE</a>
+        <div class="dropdown-content">
+          {% for genre in genres %}
+            <a href="{% url 'genre' genre.name %}">{{ genre.name }}</a>
+          {% endfor %}
+        </div>
+      </li>
+      
+    </ul>
+  </nav>
+
+  {% if messages %}
+  <div class="messages">
+      {% for message in messages %}
+          <div class="alert {% if message.tags %} alert-{{ message.tags }} {% endif %}" role="alert">
+              {{ message }}
+          </div>
+      {% endfor %}
+  </div>
+  {% endif %}
+
+  {% block movies %}
+  {% endblock movies %}
+
+  <script>
+    function toggleMenu() {
+      var navLinks = document.getElementById("nav-links");
+      if (navLinks.style.display === "block") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "block";
+      }
+    }
+
+    document.querySelector('.dropbtn').addEventListener('click', function() {
+      document.querySelector('.dropdown-content').classList.toggle('show');
+    });
+
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+    function showReplyForm(commentId) {
+        var form = document.getElementById('reply-form-' + commentId);
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+  </script>
+
+{% endblock content %}
