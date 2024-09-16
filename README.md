@@ -4,4 +4,10 @@ Created the Marvel Verse website to download marvel movies and series, make comm
 ### Render link
 - https://marvel-verse-web-appilication.onrender.com
 
-###Commands to run application
+## Commands to run application
+
+   ```bash
+  pip install requiremnets.txt
+  ```
+
+### Activate environment
