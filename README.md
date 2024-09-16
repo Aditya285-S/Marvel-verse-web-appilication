@@ -4,6 +4,10 @@ Created the Marvel Verse website to download marvel movies and series, make comm
 ### Render link
 - https://marvel-verse-web-appilication.onrender.com
 
+## File Structure
+![](https://github.com/Aditya285-S/Marvel-verse-web-appilication/blob/main/images/File%20setup.png)
+
+
 ## Commands to run application
 
 - ### Create Environment
@@ -30,3 +34,7 @@ Created the Marvel Verse website to download marvel movies and series, make comm
   ```bash
   python manage.py runserver
   ```
+
+  ## Home Page
+
+  ![](https://github.com/Aditya285-S/Marvel-verse-web-appilication/blob/main/images/Home%20page.png)
