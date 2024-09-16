@@ -6,8 +6,27 @@ Created the Marvel Verse website to download marvel movies and series, make comm
 
 ## Commands to run application
 
-   ```bash
+- ### Create Environment
+  
+  ```bash
+  virtualenv 'enter environment name'
+  ```
+  - Eg.myenv
+
+- ### Activate environment
+
+  ```bash
+  .\myenv\scripts\activate
+  ```
+
+  ```bash
   pip install requiremnets.txt
   ```
 
-### Activate environment
+  ```bash
+  cd marvelverse
+  ```
+
+  ```bash
+  python manage.py runserver
+  ```
