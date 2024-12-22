@@ -29,15 +29,24 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'marvel-verse-web-appilication.onrender.com'
+    'marvel-verse.onrender.com',
 ]
 
-SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['https://marvel-verse-web-appilication.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://marvel-verse.onrender.com']
 
-CSRF_COOKIE_DOMAIN = 'marvel-verse-web-appilication.onrender.com'
+CSRF_COOKIE_DOMAIN = '.onrender.com'
+
+
+SESSION_COOKIE_AGE = 86400
+
+# Ensure the session does not expire when the browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Enable secure cookies for sessions (recommended for production)
+SESSION_COOKIE_SECURE = True
+
 
 
 # Application definition
@@ -108,6 +117,24 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'user_activity.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 
 # Password validation
@@ -160,12 +187,13 @@ AWS_DEFAULT_ACL = None
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # S3 Static file configurations
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS = [BASE_DIR/'static']
+# STATIC_ROOT = 'static/'
 
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -175,14 +203,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media settings
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # S3 Media file configurations
-AWS_LOCATION = 'media'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-MEDIA_ROOT = ''
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_LOCATION = 'media'
+# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+# MEDIA_ROOT = ''
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
