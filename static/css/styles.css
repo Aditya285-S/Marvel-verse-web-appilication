@@ -9,7 +9,7 @@ body {
 
 header {
     background-color: #434141;
-    padding: 35px 30px;
+    padding: 40px 30px;
     color: white;
 }
 
@@ -98,6 +98,7 @@ nav.navbar {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: relative;
+    padding: 3px 0;
 }
 
 nav.navbar ul {
