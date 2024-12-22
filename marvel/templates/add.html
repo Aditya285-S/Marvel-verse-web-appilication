@@ -1,14 +1,6 @@
 {% extends 'head.html' %}
 {% load static %}
 
-{% block header %}
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
-	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
-	crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-{% endblock header %}
-
-
 {% block content %}
 <header>
     <div class="header-container">
@@ -22,20 +14,22 @@
   <div class="messages">
       {% for message in messages %}
           <div class="alert {% if message.tags %} alert-{{ message.tags }} {% endif %}" role="alert">
-            {{ message }}
+              {{ message }}
           </div>
       {% endfor %}
   </div>
-{% endif %}
+  {% endif %}
 
-<div class="login-container">
-    <h2 class="login-title">{{type}} {{title}}</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-			{{ form.as_p }}
-        </div>
-        <button type="submit" class="btn btn-primary">{{type}} {{title}}</button>
-    </form>
+<div class="admin-container">
+    <h2 class="admin-title">Admin Panel</h2>
+
+    <div class="admin-buttons">
+        <a href="{% url 'add-movie' %}" name="movie" class="admin-btn">Add Movie</a>
+        <a href="{% url 'add-details' 'Actor' %}" class="admin-btn">Add Actor</a>
+        <a href="{% url 'add-details' 'Director' %}" class="admin-btn">Add Director</a>
+        <a href="{% url 'add-details' 'Tag' %}" class="admin-btn">Add Tag</a>
+        <a href="{% url 'add-details' 'Genre' %}" class="admin-btn">Add Genre</a>
+        <a href="{% url 'genearte-csv'%}" class="admin-btn">Genearte CSV</a>
+    </div>
 </div>
-{% endblock %}
+{% endblock content %}
