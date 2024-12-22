@@ -29,13 +29,12 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'marvel-verse.onrender.com',
+    'marvel-verse-web-appilication.onrender.com',
 ]
 
 CSRF_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['https://marvel-verse.onrender.com']
-
+CSRF_TRUSTED_ORIGINS = ['https://marvel-verse-web-appilication.onrender.com']
 CSRF_COOKIE_DOMAIN = '.onrender.com'
 
 
