@@ -1,8 +1,5 @@
 /* Extra Small Devices (Portrait phones, less than 576px) */
 @media (max-width: 575px) {
-    body {
-        padding: 5%;
-    }
 
     header {
         text-align: center;
@@ -60,9 +57,6 @@
 
 /* Small Devices (Landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 900px) {
-    body {
-        padding: 5%;
-    }
 
     header {
         text-align: left;
@@ -108,9 +102,6 @@
 
 /* Medium Devices (Tablets, 901px and up) */
 @media (min-width: 901px) and (max-width: 1024px) {
-    body {
-        padding: 10%;
-    }
 
     header {
         text-align: left;
@@ -156,8 +147,14 @@
 
 /* Large Devices (Desktops, 1024px and up) */
 @media (min-width: 1024px) and (max-width: 1200px) {
-    body {
-        padding: 12%;
+
+    .header-container {
+        display:content;
+    }
+
+    .search-bar-container {
+        display: inline;
+        justify-content: center;
     }
 
     .movies-container {
@@ -196,14 +193,19 @@
 }
 
 /* Extra Large Devices (Desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    body {
-        padding: 15%;
+@media ((min-width: 1200px) and (max-width: 1400px) ) {
+    .site-title {
+        font-size: 25px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 300px
     }
 
     .movies-container {
         grid-template-columns: repeat(4, 1fr);
-        gap: 40px;
+        /* gap: 40px; */
     }
 
     .movie-details {
