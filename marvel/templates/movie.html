@@ -7,7 +7,7 @@
     {% for movie in movies %}
 
         {% if request.user.is_staff %}
-            <div style="margin: 5px 0 20px 15px;">
+            <div style="margin: 5px 0 0 15px;">
                 <a href="{% url 'update-movie' movie.id %}" class="login-button">UPDATE</a>
                 <a href="{% url 'delete-confirmation' movie.id %}" class="login-button">DELETE</a>
             </div>
@@ -66,9 +66,9 @@
             </ul>
         </div>
         
-        <div class="storyline">
+        <div class="storyline" style="padding-top: 10px;">
             <h2>Storyline:</h2>
-            <h4>"{{ movie.storyline }}"</h4>
+            <h4 style="font-size: large;">"{{ movie.storyline }}"</h4>
         </div>
         
 
@@ -89,6 +89,8 @@
         </div>
     {% endfor %}
     {% endif %}
+
+    <br>
 
     <div class="comment-section">
         <h2>Comments</h2>
