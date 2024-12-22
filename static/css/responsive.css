@@ -1,0 +1,237 @@
+/* Extra Small Devices (Portrait phones, less than 576px) */
+@media (max-width: 575px) {
+    body {
+        padding: 5%;
+    }
+
+    header {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav {
+        display: block;
+        text-align: center;
+    }
+
+    .navbar .dropdown {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .movie-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-card-container {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .poster img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+    }
+
+    .movie-info {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .center-text h3 {
+        font-size: 16px;
+    }
+
+    .download-link a {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        padding: 10px;
+        background-color: #2196F3;
+        color: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        width: 150px;
+        margin: 10px auto;
+    }
+}
+
+/* Small Devices (Landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 900px) {
+    body {
+        padding: 5%;
+    }
+
+    header {
+        text-align: left;
+        padding: 10px 5%;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .movie-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-card-container {
+        margin-bottom: 30px;
+    }
+
+    .poster img {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .movie-info {
+        width: 100%;
+    }
+
+    .center-text h3 {
+        font-size: 18px;
+    }
+
+    .download-link a {
+        display: block;
+        text-align: center;
+        font-size: 14px;
+        padding: 12px;
+        width: 160px;
+        margin: 15px auto;
+    }
+}
+
+/* Medium Devices (Tablets, 901px and up) */
+@media (min-width: 901px) and (max-width: 1024px) {
+    body {
+        padding: 10%;
+    }
+
+    header {
+        text-align: left;
+        padding: 15px 0;
+    }
+
+    .movies-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .movie-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .movie-card-container {
+        flex: 1 1 45%;
+        margin-bottom: 30px;
+    }
+
+    .poster img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+    .movie-info {
+        padding: 20px;
+    }
+
+    .center-text h3 {
+        font-size: 20px;
+    }
+
+    .download-link a {
+        font-size: 16px;
+        padding: 14px;
+        width: 180px;
+    }
+}
+
+/* Large Devices (Desktops, 1024px and up) */
+@media (min-width: 1024px) and (max-width: 1200px) {
+    body {
+        padding: 12%;
+    }
+
+    .movies-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .movie-details {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .movie-card-container {
+        flex: 1 1 40%;
+        margin-bottom: 40px;
+    }
+
+    .poster img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .movie-info {
+        padding: 20px;
+    }
+
+    .center-text h3 {
+        font-size: 22px;
+    }
+
+    .download-link a {
+        font-size: 18px;
+        padding: 16px;
+        width: 200px;
+    }
+}
+
+/* Extra Large Devices (Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    body {
+        padding: 15%;
+    }
+
+    .movies-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+
+    .movie-details {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .movie-card-container {
+        flex: 1 1 30%;
+        margin-bottom: 50px;
+    }
+
+    .poster img {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .movie-info {
+        padding: 30px;
+    }
+
+    .center-text h3 {
+        font-size: 24px;
+    }
+
+    .download-link a {
+        font-size: 20px;
+        padding: 18px;
+        width: 220px;
+    }
+}

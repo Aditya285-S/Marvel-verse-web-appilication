@@ -1,0 +1,478 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+header {
+    background-color: #434141;
+    padding: 30px;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Noto Serif', serif;
+    flex-grow: 1;
+    justify-content: center;
+    animation-name: marvel;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes marvel {
+    from {
+        color: #39e63c;
+    }
+    to {
+        color: #e34b3d;
+    }
+}
+
+.search-bar-container {
+    gap: 10px;
+    flex-grow: 2;
+    justify-content: center;
+    font-weight: bold;
+    border-color: white;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 8px;
+    border: none;
+    background-color: #39e63c;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: #34c236;
+}
+
+
+.login-button {
+    justify-content: end;
+    padding: 10px 10px;
+    background-color: #e34b3d;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    /* font-weight: bold; */
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #b12016;
+    border-color: #ffffff;
+}
+
+nav.navbar {
+    background-color: #292828;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+}
+
+nav.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav.navbar ul li {
+    display: inline;
+    margin: 15px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+
+nav.navbar ul li a {
+    color: #b1afaf;
+    text-decoration: none;
+    padding: 0px 20px;
+    display: block;
+}
+
+nav.navbar ul li a:hover {
+    transform: scale(1.05); 
+    color: #ffffff;
+    cursor: pointer;
+}
+
+nav.navbar ul li.dropdown {
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    /* right: 0; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    border: 2px solid #434141;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #b1afaf;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #444;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.dropdown-content a:hover {
+    background-color: #39e63c;
+    color: white;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+
+nav.navbar ul li a {
+    position: relative;
+    z-index: 2; 
+}
+
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.movies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.movies-container a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.movie-card {
+    background-color: #27272a;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: 95%;
+    min-height: 95%;
+}
+
+.movie-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.movie-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 350px;
+}
+
+.movie-card img:hover{
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.movie-card h2 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: white;
+}
+
+.movie-card h2:hover {
+    opacity: 50%;
+    cursor: pointer;
+}
+
+.no-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background-color: #434141;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 20px 80px;
+    color: white;
+}
+
+.no-movie-text {
+    font-size: 24px;
+    font-family: 'Noto Serif', serif;
+    color: #b1afaf;
+}
+
+.no-content:hover {
+    background-color: #292828;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    list-style: none;
+    /* background-color: #292828; */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    gap: 10px; /* Adding gap between buttons */
+}
+
+.pagination .page-item {
+    margin: 0;
+}
+
+.pagination .page-link {
+    padding: 10px 15px;
+    background-color: #434141;
+    border: none;
+    border-radius: 5px;
+    color: #b1afaf;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #39e63c;
+    color: white;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.pagination .current {
+    padding: 10px 15px;
+    background-color: #434141;
+    color: #ffffff;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.pagination .disabled .page-link {
+    background-color: #434141;
+    color: #6c757d;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.step-links {
+    display: flex;
+    gap: 10px; /* Space between first/previous and next/last */
+}
+
+.step-links .page-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.step-links .page-link {
+    padding: 10px 20px; 
+}
+
+
+/* Container for movie card */
+
+.movie-details{
+    gap: 20px;
+    padding: 20px;
+}
+
+.movie-card-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Poster image styling */
+.poster img {
+    max-width: 100%;
+    border-radius: 5px;
+    height: 350px;
+}
+
+/* Movie info styling */
+.movie-info {
+    flex: 1;
+    color: white;
+}
+
+/* Movie header to hold title and rating side by side */
+.movie-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Title styling */
+.movie-info h1 {
+    color: #90ee90;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* Rating section beside the movie title */
+.rating-star {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #ffcc00; /* Color for the stars */
+}
+
+/* Star rating styling */
+.rating-stars {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Rating score */
+.rating-star p {
+    color: white;
+    margin: 0;
+}
+
+.rating-star-container .rating-star {
+    font-size: 2rem; /* Adjust size as needed */
+    color: #f52c2c; /* Heart color */
+}
+
+
+/* Movie details styling */
+.movie-info p {
+    margin: 5px 0;
+}
+
+/* Download link styling */
+.download-link {
+    text-align: center; /* Center-align the button */
+    margin-top: 20px;
+}
+
+.download-link a {
+    display: inline-block;
+    padding: 10px 20px; /* Slightly larger padding */
+    background-color: #434141;
+    color: #90ee90;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px; /* Increased font size */
+    font-weight: bold; /* Optional: Makes the text bolder */
+}
+
+.download-link a:hover {
+    background-color: #43f146;
+    color: #141212;
+}
+
+.center-text {
+    color: #6df06d;
+    font-size: large;
+    text-align: center;
+}
+
+.download-text {
+    color: #7891eb;
+    font-size: large;
+    padding-top: 20px;
+    text-align: center;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Movie info details */
+.movie-info-details {
+    margin-top: 30px;
+    color:#bcc3c9
+}
+
+.movie-info-details h2, .storyline h2 {
+    color: #90ee90;
+    margin-top: 20px;
+}
+
+.movie-info-details ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.movie-info-details li {
+    margin-bottom: 10px;
+}
+
+.storyline h4 {
+    margin-top: 10px;
+    color:#bcc3c9
+}
+
+.dropdown-content {
+    display: none;
+}
+
+.dropdown-content.show {
+    display: block;
+}

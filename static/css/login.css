@@ -1,0 +1,136 @@
+.login-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #434141;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-title {
+    text-align: center;
+    font-size: 35px;
+    margin: 15px 20px;
+    font-family: 'Noto Serif', serif;
+    color: #e34b3d;
+    animation-name: login;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.login-btn {
+    /* width: 100%; */
+    padding: 6px 10px;
+    background-color: #39e63c;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #34d238;
+    transform: scale(1.05);
+}
+
+.login-btn:active {
+    background-color: #32c034;
+    transform: scale(1);
+}
+
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px #39e63c;
+}
+
+
+@keyframes login {
+    from {
+        color: #e34b3d;
+    }
+    to {
+        color: #39e63c;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px 0px 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #292828;
+    color: white;
+    font-size: 16px;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-footer a {
+    color: #56c058;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    color: #44dd47;
+    text-decoration: underline;
+}
+
+
+/* Styling for success messages */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+.alert-error {
+    background-color: #721c24;
+    color: #c49297;
+    border: 1px solid #914c53;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center; 
+    display: inline-block; 
+}
+
+.alert-info {
+    background-color: #c0b6b6;
+    color: #3b2d2f;
+    border: 1px solid #282526;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center; 
+    display: inline-block; 
+}
+
+
+.messages {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; 
+}

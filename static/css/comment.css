@@ -1,0 +1,163 @@
+.comment-section {
+    margin: 30px 0;
+    max-width: 70%;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.comment-section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #2458c8;
+}
+
+.comment {
+    display: flex;
+    max-width: 90%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #444; /* Dark background for each comment */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.comment img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-content strong {
+    font-size: 14px;
+    color: #86e178; /* Light text color for the username */
+}
+
+.comment-content .date {
+    font-size: 10px;
+    color: #d7d7d7; /* Lighter color for the date */
+    margin-left: 10px;
+}
+
+.comment-content p {
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #f9f9f9; /* Light text color for the comment text */
+}
+
+.comment .reply {
+    color: #1e90ff; /* Bright color for reply links */
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.comment .reply:hover {
+    text-decoration: underline;
+}
+
+.comment-login {
+    margin-top: 10px;
+}
+
+.comment-login a {
+    color: #1e90ff; /* Bright color for the login link */
+    text-decoration: none;
+}
+
+.comment-login a:hover {
+    text-decoration: underline;
+}
+
+.replies {
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.replies .comment {
+    max-width: 80%;
+}
+
+.reply-form {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+.reply-form textarea {
+    width: 90%;
+    max-height: 100px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    margin-bottom: 5px;
+    resize: vertical;
+    color: #f9f9f9;
+    background-color: #444;
+}
+
+.reply-form button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reply-form button:hover {
+    background-color: #4682b4;
+}
+
+h5 {
+    color: #bbb;
+    font-size: 16px;
+}
+
+.comment-input {
+    margin-top: 10px;
+    padding: 2px 15px;
+    background-color: #555;
+    border-radius: 10px;
+    max-width: 60%;
+    margin-bottom: 10px;
+}
+
+.comment-input textarea{
+    width: 90%;
+    max-height: 100px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    resize: vertical;
+    color: #f9f9f9;
+    background-color: #444;
+}
+
+
+.comment-button button {
+    background-color: #2ddf56; /* Green button color */
+    color: white;
+    font-size: small;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comment-button button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
