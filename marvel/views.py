@@ -231,9 +231,9 @@ def movie(request, movie_id):
 
 @login_required(login_url='login')
 def update_like(request, movie_id):
-    movie = get_object_or_404(Movies, id=movie_id)
+    # movie = get_object_or_404(Movies, id=movie_id)
     
-    favourite, _ = UserFavorites.objects.get_or_create(user=request.user, movie=movie)
+    favourite, _ = UserFavorites.objects.get_or_create(user=request.user, movie=movie_id)
 
     if favourite.liked:
         favourite.liked = False
